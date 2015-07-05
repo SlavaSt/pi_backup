@@ -28,15 +28,15 @@
 # ======================== CHANGE THESE VALUES ========================
 function stopServices {
 	echo -e "${purple}${bold}Stopping services before backup${NC}${normal}" | tee -a $DIR/backup.log
-    sudo service sendmail stop
-    sudo service cron stop
+    #sudo service sendmail stop
+    #sudo service cron stop
     sudo service ssh stop
-    sudo pkill deluged
-    sudo pkill deluge-web
-    sudo service deluge-daemon stop
-    sudo ervice btsync stop
-    sudo service apache2 stop
-    sudo service samba stop
+    #sudo pkill deluged
+    #sudo pkill deluge-web
+    #sudo service deluge-daemon stop
+    #sudo ervice btsync stop
+    #sudo service apache2 stop
+    #sudo service samba stop
     
     #sudo service noip stop
     #sudo service proftpd stop
@@ -51,19 +51,19 @@ function stopServices {
 
 function startServices {
 	echo -e "${purple}${bold}Starting the stopped services${NC}${normal}" | tee -a $DIR/backup.log
-    sudo ervice samba start
-    sudo service apache2 start
-    sudo service btsync start
-    sudo service deluge-daemon start
+    #sudo ervice samba start
+    #sudo service apache2 start
+    #sudo service btsync start
+    #sudo service deluge-daemon start
     sudo service ssh start
-    sudo service cron start
-    sudo service sendmail start
+    #sudo service cron start
+    #sudo service sendmail start
 }
 
 
 # Setting up directories
 SUBDIR=raspberrypi_backups
-MOUNTPOINT=/media/usbstick64gb
+MOUNTPOINT=/mnt/timecapsule
 DIR=$MOUNTPOINT/$SUBDIR
 RETENTIONPERIOD=1 # days to keep old backups
 POSTPROCESS=0 # 1 to use a postProcessSucess function after successfull backup
